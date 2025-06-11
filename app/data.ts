@@ -86,7 +86,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Developer',
     start: '2022',
     end: '2023',
-    link: 'https://ibelick.com',
+    link: '/experience/delhivery',
     id: 'work1',
   },
   {
@@ -94,7 +94,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Software Engineer',
     start: '2019',
     end: '2021',
-    link: 'https://ibelick.com',
+    link: '/experience/enum-informatics',
     id: 'work2',
   },
 ]

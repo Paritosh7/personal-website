@@ -225,7 +225,6 @@ export default function Personal() {
               <a
                 className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
                 href={job.link}
-                target="_blank"
                 rel="noopener noreferrer"
                 key={job.id}
               >
@@ -253,7 +252,7 @@ export default function Personal() {
           </div>
         </motion.section>
 
-        <motion.section
+        {/* <motion.section
           variants={VARIANTS_SECTION}
           transition={TRANSITION_SECTION}
         >
@@ -287,7 +286,7 @@ export default function Personal() {
               ))}
             </AnimatedBackground>
           </div>
-        </motion.section>
+        </motion.section> */}
 
         <motion.section
           variants={VARIANTS_SECTION}
