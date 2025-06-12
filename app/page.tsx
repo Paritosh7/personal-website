@@ -9,13 +9,14 @@ import {
   MorphingDialogContent,
   MorphingDialogClose,
   MorphingDialogContainer,
+  MorphingDialogImage,
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
   WORK_EXPERIENCE,
-  BLOG_POSTS,
+  TECHSTACK,
   EMAIL,
   SOCIAL_LINKS,
 } from './data'
@@ -31,6 +32,7 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import Image from 'next/image'
+import { InfiniteSlider } from '@/components/motion-primitives/infinite-slider'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -64,24 +66,20 @@ function ProjectVideo({ src }: ProjectVideoProps) {
         duration: 0.3,
       }}
     >
-      <MorphingDialogTrigger>
-        <video
+      <MorphingDialogTrigger className="p-2">
+        <MorphingDialogImage
           src={src}
-          autoPlay
-          loop
-          muted
-          className="aspect-video w-full cursor-zoom-in rounded-xl"
-        />
+          alt="A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood."
+          className="h-48 w-full rounded-md object-cover"
+        ></MorphingDialogImage>
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
         <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
-          <video
+          <MorphingDialogImage
             src={src}
-            autoPlay
-            loop
-            muted
-            className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
-          />
+            alt="A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood."
+            className="w-full rounded-md object-cover"
+          ></MorphingDialogImage>
         </MorphingDialogContent>
         <MorphingDialogClose
           className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
@@ -187,30 +185,47 @@ export default function Personal() {
           variants={VARIANTS_SECTION}
           transition={TRANSITION_SECTION}
         >
+          <h3 className="mb-5 text-lg font-medium">Tech stack</h3>
+          <div className="w-full">
+            <InfiniteSlider speedOnHover={20} gap={24}>
+              {TECHSTACK.map((tech) => (
+                <img
+                  key={tech.id}
+                  src={tech.image}
+                  alt={tech.name}
+                  title={tech.name}
+                  className="aspect-square w-[120px] rounded-[4px]"
+                />
+              ))}
+            </InfiniteSlider>
+          </div>
+        </motion.section>
+
+        <motion.section
+          variants={VARIANTS_SECTION}
+          transition={TRANSITION_SECTION}
+        >
           <h3 className="mb-5 text-lg font-medium">SELECT WORKS</h3>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
             {PROJECTS.map((project) => (
-              <Card key={project.id} className="flex h-full flex-col p-0">
-                <CardContent className="p-0">
-                  <div className="relative aspect-video w-full">
-                    <Image
-                      src={project.image}
-                      alt={project.name}
-                      fill
-                      className="rounded-t-xl object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  </div>
-                </CardContent>
-                <CardFooter className="flex flex-grow flex-col items-start p-4">
-                  <h4 className="mb-1 text-base font-semibold">
+              <div key={project.name} className="space-y-2">
+                <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+                  <ProjectVideo src={project.image} />
+                </div>
+                <div className="px-1">
+                  <a
+                    className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
+                    href={project.link}
+                    target="_blank"
+                  >
                     {project.name}
-                  </h4>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                    <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full dark:bg-zinc-50"></span>
+                  </a>
+                  <p className="text-base text-zinc-600 dark:text-zinc-400">
                     {project.description}
                   </p>
-                </CardFooter>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </motion.section>

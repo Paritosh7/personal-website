@@ -28,36 +28,90 @@ type SocialLink = {
   link: string
 }
 
+type TechStack = {
+  id: string
+  name: string
+  image: string
+}
+
+export const TECHSTACK = [
+  {
+    id: 'js',
+    name: 'JavaScript',
+    image: '/techstack/javascript.png',
+  },
+  {
+    id: 'ts',
+    name: 'TypeScript',
+    image: '/techstack/typescript.png',
+  },
+  {
+    id: 'react',
+    name: 'React',
+    image: '/techstack/react.png',
+  },
+  {
+    id: 'nextjs',
+    name: 'Next.js',
+    image: '/techstack/nextjs.jpeg',
+  },
+  {
+    id: 'python',
+    name: 'Python',
+    image: '/techstack/python.webp',
+  },
+  {
+    id: 'django',
+    name: 'Django',
+    image: '/techstack/django.png',
+  },
+  {
+    id: 'html',
+    name: 'HTML',
+    image: '/techstack/html.jpg',
+  },
+  {
+    id: 'css',
+    name: 'CSS',
+    image: '/techstack/css.png',
+  },
+  {
+    id: 'docker',
+    name: 'Docker',
+    image: '/techstack/docker.png',
+  },
+]
+
 export const PROJECTS: Project[] = [
   {
-    name: 'Shelf Share',
+    name: 'Trade Reads UI - Book exchange platform',
     description:
-      'A book exchange web application that lets student exchange books',
+      'A book exchange web application (UI) that lets student exchange books.',
     link: 'https://pro.motion-primitives.com/',
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
     id: 'project1',
-    image: '/projects/project1.jpg',
+    image: '/projects/project1.png',
   },
   {
-    name: 'Polymapper',
+    name: 'Delta Dash',
     description:
-      'A GIS web application used internally by Delhivery for mapping solutions.',
-    link: 'https://motion-primitives.com/',
+      'Real-time Formula 1 dashboard using Next.js and FastF1 for live telemetry, lap data, and session insights.',
+    link: 'https://github.com/Paritosh7/delta-dash',
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
     id: 'project2',
-    image: '/projects/project2.jpg',
+    image: '/projects/project2.png',
   },
   {
-    name: 'Flare',
+    name: 'Personal Portfolio',
     description:
-      "Angular based GIS web application for Delhivery's mapping solution",
+      'My personal portfolio built using Next.js and motion-primitives',
     link: 'https://pro.motion-primitives.com/',
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
     id: 'project3',
-    image: '/projects/project3.jpg',
+    image: '/projects/project3.png',
   },
   {
     name: 'Job Flow',
@@ -66,16 +120,26 @@ export const PROJECTS: Project[] = [
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
     id: 'project4',
-    image: '/projects/project4.jpg',
+    image: '/projects/project4.png',
   },
   {
-    name: 'Serverless',
+    name: 'Polymapper',
     description:
       'A simple web application for testing Serverless and for my own learning',
     link: 'https://pro.motion-primitives.com/',
     video:
       'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
     id: 'project5',
+    image: '/projects/project5.jpg',
+  },
+  {
+    name: 'Flare',
+    description:
+      'A simple web application for testing Serverless and for my own learning',
+    link: 'https://pro.motion-primitives.com/',
+    video:
+      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
+    id: 'project6',
     image: '/projects/project5.jpg',
   },
 ]
