@@ -10,6 +10,9 @@ import {
   MorphingDialogClose,
   MorphingDialogContainer,
   MorphingDialogImage,
+  MorphingDialogTitle,
+  MorphingDialogSubtitle,
+  MorphingDialogDescription,
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
@@ -19,6 +22,7 @@ import {
   TECHSTACK,
   EMAIL,
   SOCIAL_LINKS,
+  Project,
 } from './data'
 
 import { TextEffect } from '@/components/ui/text-effect'
@@ -33,6 +37,7 @@ import {
 } from '@/components/ui/card'
 import Image from 'next/image'
 import { InfiniteSlider } from '@/components/motion-primitives/infinite-slider'
+import { GlowEffect } from '@/components/motion-primitives/glow-effect'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -54,10 +59,10 @@ const TRANSITION_SECTION = {
 }
 
 type ProjectVideoProps = {
-  src: string
+  project: Project
 }
 
-function ProjectVideo({ src }: ProjectVideoProps) {
+function ProjectVideo({ project }: ProjectVideoProps) {
   return (
     <MorphingDialog
       transition={{
@@ -68,18 +73,46 @@ function ProjectVideo({ src }: ProjectVideoProps) {
     >
       <MorphingDialogTrigger className="p-2">
         <MorphingDialogImage
-          src={src}
+          src={project.image}
           alt="A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood."
           className="h-48 w-full rounded-md object-cover"
         ></MorphingDialogImage>
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
+        <MorphingDialogContent className="pointer-events-auto relative flex h-auto w-full flex-col overflow-hidden rounded-md border border-zinc-950/10 bg-white p-2 sm:w-[500px] dark:border-zinc-50/10 dark:bg-zinc-900">
           <MorphingDialogImage
-            src={src}
+            src={project.image}
             alt="A desk lamp designed by Edouard Wilfrid Buquet in 1925. It features a double-arm design and is made from nickel-plated brass, aluminium and varnished wood."
             className="w-full rounded-md object-cover"
           ></MorphingDialogImage>
+          <div className="p-6">
+            <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50">
+              {project.name}
+            </MorphingDialogTitle>
+            <MorphingDialogSubtitle className="text-zinc-700 dark:text-zinc-400">
+              {project.description}
+            </MorphingDialogSubtitle>
+            <MorphingDialogDescription
+              disableLayoutAnimation
+              variants={{
+                initial: { opacity: 0, scale: 0.8, y: 100 },
+                animate: { opacity: 1, scale: 1, y: 0 },
+                exit: { opacity: 0, scale: 0.8, y: 100 },
+              }}
+            >
+              <p className="mt-2 text-zinc-500 dark:text-zinc-500">
+                {project.details}
+              </p>
+              <a
+                className="mt-2 inline-flex text-zinc-500 underline"
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github Link
+              </a>
+            </MorphingDialogDescription>
+          </div>
         </MorphingDialogContent>
         <MorphingDialogClose
           className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
@@ -135,9 +168,28 @@ export default function Personal() {
     <>
       <section className="mb-10">
         <div>
-          <Link href="/" className="font-medium text-black dark:text-white">
-            <h1 className="text-xl font-bold">PARITOSH SAHNI</h1>
-          </Link>
+          <div className="flex justify-between">
+            <Link href="/" className="font-medium text-black dark:text-white">
+              <h1 className="text-xl font-bold">PARITOSH SAHNI</h1>
+            </Link>
+
+            <div className="relative">
+              <GlowEffect
+                colors={['#FF5733', '#33FF57', '#3357FF', '#F1C40F']}
+                mode="colorShift"
+                blur="soft"
+                duration={3}
+                scale={0.9}
+              />
+              <a
+                href="/CV.pdf"
+                download
+                className="relative inline-flex max-w-sm items-center gap-1 rounded-md bg-white px-2.5 py-1.5 text-sm text-black outline outline-[#fff2f21f] dark:bg-zinc-950 dark:text-white"
+              >
+                Download CV
+              </a>
+            </div>
+          </div>
           <TextEffect
             as="p"
             preset="fade"
@@ -145,7 +197,7 @@ export default function Personal() {
             className="text-zinc-600 dark:text-zinc-500"
             delay={0.5}
           >
-            Fullstack Developer
+            Software Developer
           </TextEffect>
         </div>
         <div className="mt-1 flex items-center justify-start space-x-3">
@@ -185,7 +237,7 @@ export default function Personal() {
           variants={VARIANTS_SECTION}
           transition={TRANSITION_SECTION}
         >
-          <h3 className="mb-5 text-lg font-medium">Tech stack</h3>
+          <h3 className="mb-5 text-lg font-medium">Technologies</h3>
           <div className="w-full">
             <InfiniteSlider speedOnHover={20} gap={24}>
               {TECHSTACK.map((tech) => (
@@ -210,7 +262,7 @@ export default function Personal() {
             {PROJECTS.map((project) => (
               <div key={project.name} className="space-y-2">
                 <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                  <ProjectVideo src={project.image} />
+                  <ProjectVideo project={project} />
                 </div>
                 <div className="px-1">
                   <a
