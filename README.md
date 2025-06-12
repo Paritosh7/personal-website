@@ -68,14 +68,14 @@ A modern, animated developer portfolio built with Next.js, Tailwind CSS, and mot
 
 ## 📝 Customization
 
-    - **Update your information**
-        Edit app/data.ts to update your projects, tech stack, work experience, blog posts, and social links.
+- **Update your information**
+  Edit app/data.ts to update your projects, tech stack, work experience, blog posts, and social links.
 
-    - **Blog & Experience**
-        Add new .mdx files in app/blog/ or app/experience/ for new posts or roles.
+- **Blog & Experience**
+  Add new .mdx files in app/blog/ or app/experience/ for new posts or roles.
 
-    - **Styling**
-        Tweak globals.css or Tailwind config for custom colors and fonts.
+- **Styling**
+  Tweak globals.css or Tailwind config for custom colors and fonts.
 
 ## 📄 License
 
