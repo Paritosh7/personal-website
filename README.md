@@ -1,40 +1,87 @@
-<img src="/public/cover.jpg" alt="Cover image representing Nim, a personal website template" width="100%" />
+# Paritosh Sahni – Portfolio
 
-Nim is a free and open-source personal website template built with Next.js 15, React 19, Tailwind CSS v4, and Motion. Designed for developers, designers, and founders, it combines minimalism with delightful animated components powered by [Motion-Primitives](https://motion-primitives.com).
+A modern, animated developer portfolio built with Next.js, Tailwind CSS, and motion-primitives. This project showcases my work, technical skills, and experience as a software developer, with a focus on clean design, accessibility, and smooth user experience.
 
-Live demo: [https://nim-fawn.vercel.app](https://nim-fawn.vercel.app)
+---
 
-## Features
+## ✨ Features
 
-- Minimal one-page portfolio layout.
-- Blog support with MDX.
-- Responsive and accessible design.
-- Easy to use
-- [Motion-Primitives](https://motion-primitives.com) for animated components.
+- **Animated UI**: Uses motion-primitives and Framer Motion for smooth transitions and engaging interactions.
+- **Responsive Design**: Fully responsive layout for desktop, tablet, and mobile.
+- **MDX Blog & Experience**: Write blog posts and experience pages in MDX with beautiful typography.
+- **Project Gallery**: Interactive project cards with video/image previews and detailed modals.
+- **Infinite Tech Stack Slider**: Animated, looping display of technologies I use.
+- **Accessible & Themed**: Light/dark mode toggle and accessible components.
+- **Downloadable CV**: One-click download for my latest CV.
+- **Contact & Social Links**: Easy ways to connect via email and social platforms.
 
-## Getting Started
+---
 
-For detailed setup instructions, refer to the [Installation Guide](./INSTALLATION.md).
+## 🚀 Tech Stack
 
-```bash
-git clone https://github.com/ibelick/nim.git
-cd nim
-npm install
-npm run dev
-```
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [MDX](https://mdxjs.com/)
+- [Shadcn UI](https://ui.shadcn.com/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-## Contributing
+## 🛠️ Getting Started
 
-Contributions are welcome! Feel free to open issues or submit pull requests to improve Nim.
+1. **Clone the repository:**
 
-## Deployment
+   ```bash
+   git clone https://github.com/Paritosh7/portfolio.git
+   cd portfolio
+   ```
 
-You can deploy your site to any hosting platform that supports Next.js. For the easiest deployment experience, consider using Vercel:
+2. **Install dependencies**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fibelick%2Fnim&env=NEXT_PUBLIC_SITE_URL&project-name=nim&repository-name=nim&redirect-url=https%3A%2F%2Ftwitter.com%2Fibelick&demo-title=Nim&demo-description=Nim%20is%20a%20free%20and%20open-source%20minimal%20personal%20website%20template%20built%20with%20Next.js%2015%2C%20React%2019%2C%20and%20Motion-Primitives.&demo-url=https%3A%2F%2Fnim.vercel.app&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2Fibelick%2Fnim%2Frefs%2Fheads%2Fmain%2F.github%2Fassets%2Freadme.png&teamSlug=ibelick)
+   ```bash
+   npm install
 
-## About
+   \\ or
 
-Nim is designed to make personal branding effortless and beautiful. If you enjoy it, consider sharing it and exploring [Motion-Primitives Pro](https://pro.motion-primitives.com/).
+   yarn install
+   ```
+
+3. **Add your assets**
+
+   - Place your CV as public/CV.pdf
+   - Add tech stack logos in public/techstack/
+   - Add project images in public/projects/
+
+4. **Run the development server**
+
+   ```bash
+   npm run dev
+
+   \\ or
+
+   yarn dev
+   ```
+
+5. Open http://localhost:3000 to view your portfolio.
+
+## 📝 Customization
+
+    - **Update your information**
+        Edit app/data.ts to update your projects, tech stack, work experience, blog posts, and social links.
+
+    - **Blog & Experience**
+        Add new .mdx files in app/blog/ or app/experience/ for new posts or roles.
+
+    - **Styling**
+        Tweak globals.css or Tailwind config for custom colors and fonts.
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🙋‍♂️About
+
+Built and maintained by Paritosh Sahni.
+Feel free to connect or reach out for collaboration, freelance, or job opportunities!

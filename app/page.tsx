@@ -27,14 +27,6 @@ import {
 
 import { TextEffect } from '@/components/ui/text-effect'
 import { badgeVariants } from '@/components/ui/badge'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
 import Image from 'next/image'
 import { InfiniteSlider } from '@/components/motion-primitives/infinite-slider'
 import { GlowEffect } from '@/components/motion-primitives/glow-effect'
